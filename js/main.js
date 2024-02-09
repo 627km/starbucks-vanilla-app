@@ -20,7 +20,6 @@ const badgeEl = document.querySelector('header .badges');
 window.addEventListener(
   'scroll',
   _.throttle(() => {
-    console.log(window.scrollY);
     if (window.scrollY > 500) {
       // 배지 숨기기
       // gsap.to(요소, 지속시간, 옵션);
@@ -39,3 +38,12 @@ window.addEventListener(
   }, 300)
 );
 // _.throttle(함수, 시간)
+
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach((fadeEl, index) => {
+  gsap.to(fadeEl, 1, {
+    // 순차적으로 딜레이가 되도록 (첫번째는 0초딜레이, 두번째요소는 0.7초 딜레이, 세번째요소는 1.4초 딜레이...)
+    delay: (index + 1) * 0.7,
+    opacity: 1,
+  });
+});
