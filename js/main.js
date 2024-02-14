@@ -87,3 +87,13 @@ promotionToggleBtn.addEventListener('click', () => {
     promotionEl.classList.remove('hide');
   }
 });
+
+function floatingObject(selector) {
+  // gsap.to(요소, 시간, 옵션)
+  gsap.to(selector, 1, {
+    y: 20,
+    repeat: -1, // 무한반복
+    yoyo: true,
+  });
+}
+floatingObject('.floating');
